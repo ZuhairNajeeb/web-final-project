@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neo-Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: whitesmoke;
+      color: black;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: royalblue;
+      color: white;
+    }
+    .main-nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    .book-grid {
+      display: none;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .book {
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px;
+      width: 200px;
+      box-shadow: 0 0 5px lightgray;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .book:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px gray;
+    }
+    .book img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .book button {
+      display: block;
+      margin: 5px auto;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: royalblue;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .book button:hover {
+      background-color: dodgerblue;
+    }
+    .details {
+      padding: 10px;
+    }
+    .section-title {
+      padding: 0 30px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .book-section {
+      background-color: lightgray;
+      box-shadow: 0 4px 10px silver;
+      border-radius: 10px;
+      margin: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: black;
+      color: white;
+    }
+    .categories button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: dimgray;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .categories button:hover,
+    .book button:hover {
+      background-color: gray;
+    }
+    .price {
+      font-weight: bold;
+      margin: 5px 0;
+      color: darkgreen;
+    }
+    .discount {
+      text-decoration: line-through;
+      color: red;
+      font-size: 0.9em;
+    }
+    .read-now-section {
+      text-align: center;
+      margin: 20px;
+    }
+    .read-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .read-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 220px;
+    }
+    .read-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">📘 Neo-Library</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="newarrivals.html">New Arrivals</a>
+      <a href="bestsellers.html">Bestsellers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="search-container">
+      <input type="text" placeholder="Search books..." id="searchInput" />
+    </div>
+    <div class="nav-buttons">
+      <button onclick="location.href='alogin.html'">Login</button>
+      <button onclick="location.href='signup.html'">Sign Up</button>
+      <button onclick="location.href='checkout.html'">🛒</button>
+    </div>
+  </header>
+
+  <section class="read-now-section">
+    <h3>📚 Featured Books: Read Now</h3>
+    <div class="read-grid">
+      <div class="read-card">
+        <img src="readnow.jpg" alt="Featured Book 1">
+        <p>Sahn e shabah Bazuban e Mustafa</p>
+        <p class="discount">$14.99</p>
+        <p class="price">$11.49</p>
+        <button onclick="window.open('pdf.pdf', '_blank')">Read Now</button>
+        <button onclick="location.href='checkout.html'">Buy Now</button>
+      </div>
+      <div class="read-card">
+        <img src="readnow2.jpg" alt="Featured Book 2">
+        <p>Tafseer Ibn e Kaseer</p>
+        <p class="discount">$12.99</p>
+        <p class="price">$9.99</p>
+        <button onclick="window.open('pdf2.pdf', '_blank')">Read Now</button>
+        <button onclick="location.href='checkout.html'">Buy Now</button>
+      </div>
+      <div class="read-card">
+        <img src="readnow02.jpg" alt="Featured Book 3">
+        <p>Adab e Deen o Dunya</p>
+        <p class="discount">$11.99</p>
+        <p class="price">$8.99</p>
+        <button onclick="window.open('pdf02.pdf', '_blank')">Read Now</button>
+        <button onclick="location.href='checkout.html'">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="categories">
+      <button onclick="showCategory('romance')">Romance</button>
+      <button onclick="showCategory('mystery')">Mystery</button>
+      <button onclick="showCategory('scifi')">Sci-Fi</button>
+      <button onclick="showCategory('islamic')">Islamic</button>
+    </section>
+
+    <h3 class="section-title">✨ Personalized for You</h3>
+
+     <div class="book-section">
+      <section id="romance" class="book-grid" style="display: flex;">
+        <div class="book"><img src="Romance1.jpg" alt="Romance Book 1"><p>The Love Haters</p><p class="discount">$12.99</p><p class="price">$9.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="Romance2.jpg" alt="Romance Book 2"><p>It's a Love Story</p><p class="discount">$11.49</p><p class="price">$8.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="Romance3.jpg" alt="Romance Book 3"><p>Problrmatic Summer Romance</p><p class="discount">$13.49</p><p class="price">$10.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="Romance04.jpg" alt="Romance Book 4"><p>A Fate Forged in Fire</p><p class="discount">$10.99</p><p class="price">$7.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="Romance05.jpg" alt="Romance Book 5"><p>Releasing 10</p><p class="discount">$14.49</p><p class="price">$11.99</p><button>Buy Now</button></div>
+      </section>
+      <section id="mystery" class="book-grid">
+       <div class="book"><img src="mystry1.jpg" alt="Mystery Book 1"><P>When Devils Sing</p><p class="discount">$12.99</p><p class="price">$9.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="mystry2.jpg" alt="Mystery Book 2"><p>The Memmory Collector</p><p class="discount">$11.49</p><p class="price">$8.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="mystry3.jpg" alt="Mystery Book 3"><p>The Manner Of Dreams</p><p class="discount">$13.49</p><p class="price">$10.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="mystry4.jpg" alt="Mystery Book 4"><p>The Retirement Plan</p><p class="discount">$10.99</p><p class="price">$7.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="mystry5.jpg" alt="Mystery Book 5"><p>Dying To Meet You</p><p class="discount">$14.49</p><p class="price">$11.99</p><button>Buy Now</button></div>
+      </section>
+      <section id="scifi" class="book-grid">
+         <div class="book"><img src="scifi1.jpg" alt="Sci Fi Book 1"><p>The Mameory Collectors</p><p class="discount">$12.99</p><p class="price">$9.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="scifi2.jpg" alt="Sci Fi Book 2"><p>Immaculate Conception</p><p class="discount">$11.49</p><p class="price">$8.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="scifi3.jpg" alt="Sci Fi Book 3"><p>Awake In The Floating City</p><p class="discount">$13.49</p><p class="price">$10.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="scifi4.jpg" alt="Sci Fi Book 4"><p>Over Growth</p><p class="discount">$10.99</p><p class="price">$7.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="scifi5.jpg" alt="Sci Fi Book 5"><p>The Book Of Records</p><p class="discount">$14.49</p><p class="price">$11.99</p><button>Buy Now</button></div>
+      </section>
+      <section id="islamic" class="book-grid">
+        <div class="book"><img src="islamic1.jpg" alt="Islamic Book 1"><p>The Four Imams</p><p class="discount">$12.99</p><p class="price">$9.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="islamic2.jpg" alt="Islamic Book 2"><p>Faces Of MUhammad (S.A.W)</p><p class="discount">$11.49</p><p class="price">$8.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="islamic3.jpg" alt="Islamic Book 3"><P>Fashion Fabric & Rituals</p><p class="discount">$13.49</p><p class="price">$10.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="islamic4.jpg" alt="Islamic Book 4"><p>Momin Ka Hathiyaar</p><p class="discount">$10.99</p><p class="price">$7.99</p><button>Buy Now</button></div>
+        <div class="book"><img src="islamic5.jpg" alt="Islamic Book 5"><p>Tafheem ul Quran</p><p class="discount">$14.49</p><p class="price">$11.99</p><button>Buy Now</button></div>
+      </section>
+    </div>
+
+    <h3 class="section-title">🔥 Trending This Week</h3>
+<section class="book-grid" style="display: flex;">
+        <div class="book"><img src="trending1.jpg" alt="Trending Book 1"><p>Titan Of Tha Stars</p><p class="discount">$13.49</p><p class="price">$10.49</p><button>Buy Now</button></div>
+        <div class="book"><img src="trending2.jpg" alt="Trending Book 2"><p>Adam Oyebanji</p><p class="discount">$12.89</p><p class="price">$9.89</p><button>Buy Now</button></div>
+        <div class="book"><img src="trending3.jpg" alt="Trending Book 3"><p>Circular Motion</p><p class="discount">$15.49</p><p class="price">$12.49</p><button>Buy Now</button></div>
+        <div class="book"><img src="trending4.jpg" alt="Trending Book 4"><p>The Holy Quran</p><p class="discount">$14.59</p><p class="price">$11.59</p><button>Buy Now</button></div>
+        <div class="book"><img src="trending5.jpg" alt="Trending Book 5"><p>Understanding The Quran Today</p><p class="discount">$16.25</p><p class="price">$13.25</p><button>Buy Now</button></div>
+      </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Neo-Library | <a href="contact.html" style="color:white; text-decoration:underline;">Contact</a></p>
+    <p>Email: info@neolibrary.com | Phone: +123-456-7890</p>
+  </footer>
+
+  <script>
+    function showCategory(category) {
+      const sections = ['romance', 'mystery', 'scifi', 'islamic'];
+      sections.forEach(cat => {
+        document.getElementById(cat).style.display = 'none';
+      });
+      const el = document.getElementById(category);
+      if (el) {
+        el.style.display = 'flex';
+      }
+    }
+
+    window.onload = function () {
+      showCategory('romance');
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.innerText === 'Buy Now') {
+        location.href = 'checkout.html';
+      }
+    });
+  </script>
+</body>
+</html>

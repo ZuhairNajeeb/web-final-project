@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Categories - Neo-Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: whitesmoke;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: royalblue;
+      color: white;
+    }
+    .main-nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    .nav-buttons button {
+  margin-left: 10px;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffc107;
+  color: #000;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+    .search-container input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .category-buttons button {
+      padding: 10px 25px;
+      font-size: 16px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .category-buttons button:hover {
+      background-color: dodgerblue;
+    }
+
+    .book-container {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 40px;
+    }
+    .book-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .book-card:hover {
+      transform: scale(1.03);
+    }
+    .book-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .book-card .title {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+    .book-card .author {
+      color: gray;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .book-card .desc {
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    .book-card .price {
+      color: green;
+      font-weight: bold;
+    }
+    .book-card .discount {
+      text-decoration: line-through;
+      color: red;
+      font-size: 13px;
+    }
+    .book-card button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: royalblue;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo" onclick="location.href='index.html'">📘 Neo-Library</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="categories.html">Categories</a>
+      <a href="newarrivals.html">New Arrivals</a>
+      <a href="bestsellers.html">Bestsellers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="search-container">
+      <input type="text" placeholder="Search books..." />
+    </div>
+    <div class="nav-buttons">
+      <button onclick="location.href='login.html'">Login</button>
+      <button onclick="location.href='signup.html'">Sign Up</button>
+      <button onclick="location.href='checkout.html'">🛒</button>
+    </div>
+  </header>
+
+  <!-- Categories -->
+  <h2 style="text-align:center; margin-top: 40px;">📚 Select a Category</h2>
+  <div class="category-buttons">
+    <button onclick="showBooks('romance')">Romance</button>
+    <button onclick="showBooks('mystery')">Mystery</button>
+    <button onclick="showBooks('scifi')">Scientific</button>
+    <button onclick="showBooks('islamic')">Islamic</button>
+  </div>
+
+  <!-- Books Area -->
+  <div class="book-container" id="bookContainer"></div>
+
+  <footer>
+    <p>&copy; 2025 Neo-Library | <a href="contact.html" style="color:white; text-decoration:underline;">Contact</a></p>
+    <p>Email: info@neolibrary.com | Phone: +123-456-7890</p>
+  </footer>
+
+  <script>
+    const booksData = {
+     romance: [
+  { img: 'Romance1.jpg', title: 'Love in Paris', author: 'Anna Bell', price: '$8.99', discount: '$11.99', desc: 'Two strangers meet under the Eiffel Tower.' },
+  { img: 'Romance2.jpg', title: 'Letters to Rose', author: 'Ben Carter', price: '$9.49', discount: '$12.49', desc: 'A timeless love told through handwritten letters.' },
+  { img: 'Romance3.jpg', title: 'Winter Embrace', author: 'Carla Moon', price: '$7.99', discount: '$10.99', desc: 'A cozy romance in the snowy mountains.' },
+  { img: 'Romance04.jpg', title: 'Second Chance', author: 'Daniela Storm', price: '$10.99', discount: '$14.99', desc: 'Lost lovers reunited after years apart.' },
+  { img: 'Romance05.jpg', title: 'Sunset Promises', author: 'Elina Hart', price: '$8.49', discount: '$11.99', desc: 'An island romance full of mystery and charm.' },
+  { img: 'Romance1.jpg', title: 'Flirting Fate', author: 'Felix Drew', price: '$9.29', discount: '$12.99', desc: 'A love story written by destiny.' },
+  { img: 'Romance2.jpg', title: 'Cherry Blossoms', author: 'Grace Lee', price: '$9.99', discount: '$13.49', desc: 'Spring romance in Kyoto’s gardens.' },
+  { img: 'Romance3.jpg', title: 'Under the Umbrella', author: 'Harper Snow', price: '$8.79', discount: '$11.79', desc: 'Two hearts meet on a rainy day.' },
+  { img: 'Romance04.jpg', title: 'Cafe of Hearts', author: 'Isla Quinn', price: '$10.49', discount: '$13.99', desc: 'Romance blooms in a small-town café.' },
+  { img: 'Romance05.jpg', title: 'Stolen Glances', author: 'Jake Rivers', price: '$9.69', discount: '$12.99', desc: 'A forbidden love full of secrets.' }
+],
+
+mystery: [
+  { img: 'Mystry1.jpg', title: 'The Last Clue', author: 'K. Doyle', price: '$11.99', discount: '$14.99', desc: 'A detective follows cryptic puzzles to solve a murder.' },
+  { img: 'Mystry2.jpg', title: 'Deadly Silence', author: 'Linda Chase', price: '$10.49', discount: '$13.49', desc: 'A small town hides a deadly secret.' },
+  { img: 'Mystry3.jpg', title: 'Hidden Truth', author: 'Martin Black', price: '$9.99', discount: '$12.99', desc: 'A journalist uncovers a decades-old conspiracy.' },
+  { img: 'Mystry4.jpg', title: 'The Third Floor', author: 'Nina Wells', price: '$12.99', discount: '$16.99', desc: 'Strange noises, dark corridors, and a locked door.' },
+  { img: 'Mystry5.jpg', title: 'Whispers in Fog', author: 'Oliver Finch', price: '$8.99', discount: '$11.99', desc: 'A murder mystery in a foggy village.' },
+  { img: 'Mystry1.jpg', title: 'The Vanishing Point', author: 'Paula Sharp', price: '$11.29', discount: '$14.49', desc: 'A girl disappears from a moving train.' },
+  { img: 'Mystry2.jpg', title: 'Echoes of the Past', author: 'Quinn Harper', price: '$9.59', discount: '$12.59', desc: 'An old mansion with buried secrets.' },
+  { img: 'Mystry3.jpg', title: 'Silent Footsteps', author: 'Renee Stone', price: '$10.19', discount: '$13.49', desc: 'Someone is watching... always.' },
+  { img: 'Mystry4.jpg', title: 'Crimson Code', author: 'Steven Knox', price: '$11.79', discount: '$15.49', desc: 'Hacker mystery meets serial killer thriller.' },
+  { img: 'Mystry5.jpg', title: 'Shadow Evidence', author: 'Trisha Hale', price: '$9.39', discount: '$12.39', desc: 'Forensic science leads to shocking truths.' }
+],
+
+scifi: [
+  { img: 'SciFi1.jpg', title: 'Cosmic Rift', author: 'A. Nova', price: '$12.49', discount: '$15.99', desc: 'A wormhole threatens to consume Earth.' },
+  { img: 'SciFi2.jpg', title: 'Time Loopers', author: 'Bryan Skye', price: '$11.89', discount: '$14.89', desc: 'Teenagers stuck in a time loop fight back.' },
+  { img: 'SciFi3.jpg', title: 'Neon Earth', author: 'Celeste Vega', price: '$10.99', discount: '$13.99', desc: 'Cyberpunk rebellion in a glowing future.' },
+  { img: 'SciFi4.jpg', title: 'Stars Beyond', author: 'Dex Orion', price: '$9.99', discount: '$12.99', desc: 'Explorers discover a planet like no other.' },
+  { img: 'SciFi5.jpg', title: 'Quantum Child', author: 'Elara Jett', price: '$12.29', discount: '$15.29', desc: 'A child born with knowledge of the universe.' },
+  { img: 'SciFi1.jpg', title: 'Alien Heir', author: 'F. Thorne', price: '$11.49', discount: '$14.49', desc: 'The missing heir to a galactic throne returns.' },
+  { img: 'SciFi2.jpg', title: 'Black Sun Rising', author: 'Gideon Rae', price: '$13.59', discount: '$17.59', desc: 'A dying star awakens a forgotten evil.' },
+  { img: 'SciFi3.jpg', title: 'Deep Core', author: 'H. Lux', price: '$10.49', discount: '$13.49', desc: 'Mining mission uncovers ancient tech.' },
+  { img: 'SciFi4.jpg', title: 'Android Tears', author: 'Isa Draco', price: '$9.69', discount: '$12.69', desc: 'A robot learns what it means to feel.' },
+  { img: 'SciFi5.jpg', title: 'The Last Orbit', author: 'Juno Ray', price: '$12.79', discount: '$15.79', desc: 'The final ship leaves Earth behind.' }
+],
+
+islamic: [
+  { img: 'Islamic1.jpg', title: 'Life of the Prophets', author: 'Khalid Saif', price: '$6.99', discount: '$9.99', desc: 'Stories of major prophets in Islam.' },
+  { img: 'Islamic2.jpg', title: 'Hadith Wisdom', author: 'Maryam Noor', price: '$8.49', discount: '$11.49', desc: 'Powerful life lessons from Hadith.' },
+  { img: 'Islamic3.jpg', title: 'The Quranic Way', author: 'Nabeel Khan', price: '$7.99', discount: '$10.99', desc: 'Understanding life through Quranic teachings.' },
+  { img: 'Islamic4.jpg', title: 'Islam & Science', author: 'Omar Hashmi', price: '$9.29', discount: '$12.29', desc: 'Where modern science meets Islamic thought.' },
+  { img: 'Islamic5.jpg', title: 'Stories for Kids', author: 'Ayesha Malik', price: '$5.99', discount: '$8.99', desc: 'Islamic stories simplified for children.' },
+  { img: 'Islamic1.jpg', title: 'Sahaba Lives', author: 'Bilal Mir', price: '$7.49', discount: '$10.49', desc: 'Biography of Prophet’s companions.' },
+  { img: 'Islamic2.jpg', title: 'Fiqh Simplified', author: 'Dr. Zainab Farooq', price: '$9.79', discount: '$13.49', desc: 'Basic rulings for everyday Muslim life.' },
+  { img: 'Islamic3.jpg', title: 'Seerah of the Prophet', author: 'Imran Qureshi', price: '$10.49', discount: '$13.99', desc: 'Detailed biography of the Prophet Muhammad (PBUH).' },
+  { img: 'Islamic4.jpg', title: 'Names of Allah', author: 'Rashid Karim', price: '$6.89', discount: '$9.89', desc: 'The 99 Names of Allah explained beautifully.' },
+  { img: 'Islamic5.jpg', title: 'Islamic Ethics', author: 'Fatima Zahra', price: '$8.19', discount: '$11.19', desc: 'Character and manners in Islam.' }
+]
+
+    };
+
+    function showBooks(category) {
+      const container = document.getElementById('bookContainer');
+      container.innerHTML = '';
+      container.style.display = 'flex';
+
+      booksData[category].forEach(book => {
+        const card = document.createElement('div');
+        card.className = 'book-card';
+        card.innerHTML = `
+          <img src="${book.img}" alt="${book.title}" />
+          <div class="title">${book.title}</div>
+          <div class="author">By ${book.author}</div>
+          <div class="desc">${book.desc}</div>
+          <div class="price">${book.price} <span class="discount">${book.discount}</span></div>
+          <button onclick="location.href='checkout.html'">Buy Now</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+
+</body>
+</html>

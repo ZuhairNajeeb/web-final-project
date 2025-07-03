@@ -1,0 +1,74 @@
+[
+  {
+    "id": "001",
+    "title": "The Silent Depths",
+    "author": "Ava Ray",
+    "genre": "Mystery",
+    "cover": "https://images.unsplash.com/photo-1544933761-7c2f8822f5dc?auto=format&fit=crop&w=300&q=80",
+    "description": "A chilling mystery unfolds in the Arctic depths...",
+    "price": 12.99
+  },
+  {
+    "id": "002",
+    "title": "Neon Skies",
+    "author": "Leo Finch",
+    "genre": "Sci-Fi",
+    "cover": "https://images.unsplash.com/photo-1524578271613-eb5e9ed6b7d7?auto=format&fit=crop&w=300&q=80",
+    "description": "Explore a neon-drenched cyberworld where code rules everything.",
+    "price": 14.49
+  },
+  {
+    "id": "003",
+    "title": "The Lunar Code",
+    "author": "Mira Lin",
+    "genre": "Sci-Fi",
+    "cover": "https://images.unsplash.com/photo-1601758003122-58e5f18b4a4f?auto=format&fit=crop&w=300&q=80",
+    "description": "Secrets buried beneath the moon’s surface could save Earth.",
+    "price": 15.99
+  },
+  {
+    "id": "004",
+    "title": "Heartlines",
+    "author": "Emily Cho",
+    "genre": "Romance",
+    "cover": "https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=300&q=80",
+    "description": "A romance forged between rival writers.",
+    "price": 9.99
+  },
+  {
+    "id": "005",
+    "title": "Digital Dawn",
+    "author": "Zane Malik",
+    "genre": "Fiction",
+    "cover": "https://images.unsplash.com/photo-1516979187457-637abb4f9356?auto=format&fit=crop&w=300&q=80",
+    "description": "A speculative tale of society in a post-screen age.",
+    "price": 13.49
+  },
+  {
+    "id": "006",
+    "title": "Hidden Truths",
+    "author": "Lana Grey",
+    "genre": "Mystery",
+    "cover": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80",
+    "description": "Dark secrets from the past collide with the present.",
+    "price": 11.99
+  },
+  {
+    "id": "007",
+    "title": "Sunset Romance",
+    "author": "Nina Rivera",
+    "genre": "Romance",
+    "cover": "https://images.unsplash.com/photo-1494949649105-ecf0ae6f1ff1?auto=format&fit=crop&w=300&q=80",
+    "description": "Love and loss on the shores of Santorini.",
+    "price": 10.99
+  },
+  {
+    "id": "008",
+    "title": "Mindscapes",
+    "author": "Jared Knox",
+    "genre": "Self-Help",
+    "cover": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80",
+    "description": "Techniques to master your mind and focus.",
+    "price": 16.99
+  }
+]
